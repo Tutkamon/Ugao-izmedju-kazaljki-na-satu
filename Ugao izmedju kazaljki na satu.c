@@ -17,7 +17,7 @@ int main()
         }
         if(m<0||m>59)
         {
-            printf("Minuti moraju biti izmedju 0 i 60, unesite novo vreme:");
+            printf("Minuti moraju biti izmedju 0 i 59, unesite novo vreme:");
             continue;
         }
         if(h>11)
