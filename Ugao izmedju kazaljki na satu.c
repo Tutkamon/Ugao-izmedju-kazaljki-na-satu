@@ -52,5 +52,6 @@ int main()
 	else
 		printf("\nUgao izmedju kazaljki je %d stepeni",ugaos);
 	getchar();
+	getchar();
 	return 0;
 }
