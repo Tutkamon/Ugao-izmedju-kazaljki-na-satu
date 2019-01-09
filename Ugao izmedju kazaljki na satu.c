@@ -18,17 +18,17 @@ void main()
 		printf("Broj sati ne moze biti manji od 0, unesite novo vreme:\n");
 		goto label1;
 	}
-	if(s>24)
+	if(s>23)
 	{
 		printf("Broj sati ne moze biti veci od 23, unesite novo vreme:\n");
 		goto label1;
 	}
-	if(m>59||m<0)
+	if(m<0)
 	{
 		printf("Broj minuta ne moze biti manji od 0, unesite novo vreme:\n");
 		goto label1;
 	}
-	if(s>24||s<0||m>59||m<0)
+	if(m>59)
 	{
 		printf("Broj minuta ne moze biti veci od 59, unesite novo vreme:\n");
 		goto label1;
