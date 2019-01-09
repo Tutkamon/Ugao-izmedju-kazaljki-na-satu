@@ -1,41 +1,55 @@
 #include <stdio.h>
-#include <math.h>
-int main()
+
+float apsolutna (float f)
 {
-    int h,m;
-    float ugao = 0;
-    float ugaoM = 0;
-    float ugaoH = 0;
-    printf("Unesite vreme:\n");
-    while (1)
-    {
-        scanf("%d:%d",&h,&m);
-        if(h<0||h>23)
-        {
-            printf("Sati moraju biti izmedju 0 i 23, unesite novo vreme:");
-            continue;
-        }
-        if(m<0||m>59)
-        {
-            printf("Minuti moraju biti izmedju 0 i 59, unesite novo vreme:");
-            continue;
-        }
-        if(h>11)
-            h-=12;
-        break;
-    }
-    ugaoM=(float)m*(360.0/60.0);
-    ugaoH=(360.0/12.0) * (float)h+(1.0/12.0)*ugaoM;
-    ugao=ugaoH-ugaoM;
-    if(ugao<0.0)
-    {
-        ugao=0.0-ugao;
-    }
-    if(ugao>180.0)
-    {
-        ugao=360.0-ugao;
-    }
-    printf("Ugao izmedju satne i minutne kazaljke je:%6.2f\n", ugao);
-    getchar();
-    return 0;
+	if(f<0)
+	 f = -f;	 
+   return f;	 
+}
+
+void main()
+{
+	int s,m;
+	printf("Unesite vreme:\n");
+	label1:
+	scanf("%d:%d",&s,&m);
+	if(s<0)
+	{
+		printf("Broj sati ne moze biti manji od 0, unesite novo vreme:\n");
+		goto label1;
+	}
+	if(s>24)
+	{
+		printf("Broj sati ne moze biti veci od 23, unesite novo vreme:\n");
+		goto label1;
+	}
+	if(m>59||m<0)
+	{
+		printf("Broj minuta ne moze biti manji od 0, unesite novo vreme:\n");
+		goto label1;
+	}
+	if(s>24||s<0||m>59||m<0)
+	{
+		printf("Broj minuta ne moze biti veci od 59, unesite novo vreme:\n");
+		goto label1;
+	}
+	if(s>12)
+	 s-=12;
+	float ugaoS = 0;
+	float ugaoM = 0;
+	float ugao = 0;
+	int ugaos;
+	int ugaom;
+	ugaoM = (float) m * 6.0;
+	ugaoS = (float)(s * 60.0 + m)*0.5;
+	ugao = apsolutna(ugaoM-ugaoS);
+	if(ugao>180)
+	 ugao = apsolutna(ugao-360);
+	ugaos = (int)ugao;
+	ugaom = (ugao - ugaos) * 60;
+	if(ugaom!=0)
+		printf("\nUgao izmedju kazaljki je %d stepeni i %d minuta",ugaos,ugaom);
+	else
+		printf("\nUgao izmedju kazaljki je %d stepeni",ugaos);
+	getchar();
 }
