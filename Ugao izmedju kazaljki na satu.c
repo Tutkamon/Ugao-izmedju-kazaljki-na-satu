@@ -7,7 +7,7 @@ float apsolutna (float f)
    return f;	 
 }
 
-void main()
+int main()
 {
 	int s,m;
 	printf("Unesite vreme:\n");
@@ -52,4 +52,5 @@ void main()
 	else
 		printf("\nUgao izmedju kazaljki je %d stepeni",ugaos);
 	getchar();
+	return 0;
 }
